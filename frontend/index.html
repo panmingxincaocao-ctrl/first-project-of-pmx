@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>网校系统</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>网校系统</h1>
+      <p>管理员、教师、学生多角色协作的在线教学平台</p>
+    </header>
+
+    <main class="layout">
+      <section class="card">
+        <h2>账户登录</h2>
+        <form id="login-form">
+          <label>
+            邮箱
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            密码
+            <input type="password" name="password" required />
+          </label>
+          <button type="submit">登录</button>
+        </form>
+        <div class="status" id="login-status"></div>
+      </section>
+
+      <section class="card">
+        <h2>快速注册</h2>
+        <form id="register-form">
+          <label>
+            姓名
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            邮箱
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            密码
+            <input type="password" name="password" required />
+          </label>
+          <label>
+            角色
+            <select name="role">
+              <option value="student">学生</option>
+              <option value="teacher">教师</option>
+              <option value="admin">管理员</option>
+            </select>
+          </label>
+          <button type="submit">注册</button>
+        </form>
+        <div class="status" id="register-status"></div>
+      </section>
+
+      <section class="card span-2">
+        <h2>课程列表</h2>
+        <button id="refresh-courses">刷新课程</button>
+        <div class="course-list" id="course-list"></div>
+      </section>
+
+      <section class="card">
+        <h2>教师创建课程</h2>
+        <form id="course-form">
+          <label>
+            课程名称
+            <input type="text" name="title" required />
+          </label>
+          <label>
+            课程简介
+            <textarea name="description" required></textarea>
+          </label>
+          <button type="submit">创建课程</button>
+        </form>
+        <div class="status" id="course-status"></div>
+      </section>
+
+      <section class="card">
+        <h2>学生学习进度</h2>
+        <form id="progress-form">
+          <label>
+            课程 ID
+            <input type="number" name="course_id" required />
+          </label>
+          <label>
+            PPT ID
+            <input type="number" name="ppt_id" />
+          </label>
+          <label>
+            视频 ID
+            <input type="number" name="video_id" />
+          </label>
+          <label>
+            当前页 / 秒
+            <input type="number" name="current_page" />
+          </label>
+          <label>
+            已观看秒数
+            <input type="number" name="watched_seconds" />
+          </label>
+          <button type="submit">提交进度</button>
+        </form>
+        <div class="status" id="progress-status"></div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <small>API 需要运行后端服务：http://localhost:8000</small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
